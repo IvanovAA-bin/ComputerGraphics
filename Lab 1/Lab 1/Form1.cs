@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Lab_1.MathMorphology;
 
 namespace Lab_1
 {
     public partial class Form1 : Form
     {
-        Bitmap image = null;
+        private Bitmap image = null;
+
+        private MMCoreCreationForm.MMCore mmCore = new MMCoreCreationForm.MMCore();
+
 
         public Form1()
         {
@@ -174,6 +178,68 @@ namespace Lab_1
         private void тиснениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filters filter = new EmbossingFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void линейноеРастяжениеГистограммыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new LinHysSt();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void задатьЯдроToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MMCoreCreationForm mmcf = new MMCoreCreationForm(this.mmCore);
+            mmcf.Show();
+        }
+
+        private void dilationрасширениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mmCore.coreSize == 0)
+            {
+                MessageBox.Show("Set core first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Filters filter = new Dilation(mmCore);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void erosioncetybtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mmCore.coreSize == 0)
+            {
+                MessageBox.Show("Set core first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Filters filter = new Erosion(mmCore);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void openingоткрытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mmCore.coreSize == 0)
+            {
+                MessageBox.Show("Set core first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Filters filter = new Opening(mmCore);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void closingзакрытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mmCore.coreSize == 0)
+            {
+                MessageBox.Show("Set core first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Filters filter = new Closing(mmCore);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void серыйМирToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GrayWorld();
             backgroundWorker1.RunWorkerAsync(filter);
         }
     }

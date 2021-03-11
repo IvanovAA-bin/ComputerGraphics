@@ -46,6 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LinearHystogramStretching\LinHysSt.cs" />
+    <Compile Include="MathMorphology\Closing.cs" />
+    <Compile Include="MathMorphology\Dilation.cs" />
+    <Compile Include="MathMorphology\Erosion.cs" />
+    <Compile Include="MathMorphology\MMCoreCreationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MathMorphology\MMCoreCreationForm.Designer.cs">
+      <DependentUpon>MMCoreCreationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MathMorphology\Opening.cs" />
     <Compile Include="MatrixFilters\BlurFilter.cs" />
     <Compile Include="FilterCores\DCMatrixFilter.cs" />
     <Compile Include="FilterCores\Filters.cs" />
@@ -61,6 +72,7 @@
     <Compile Include="MatrixFilters\MotionBlurFilter.cs" />
     <Compile Include="PointFilters\GlassFilter.cs" />
     <Compile Include="PointFilters\GrayScaleFilter.cs" />
+    <Compile Include="PointFilters\GrayWorld.cs" />
     <Compile Include="PointFilters\IncreaseBrightness.cs" />
     <Compile Include="MatrixFilters\IncreaseSharpness.cs" />
     <Compile Include="PointFilters\InvertFilter.cs" />
@@ -74,6 +86,9 @@
     <Compile Include="MatrixFilters\SobelFilter.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MathMorphology\MMCoreCreationForm.resx">
+      <DependentUpon>MMCoreCreationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
