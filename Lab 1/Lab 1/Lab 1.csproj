@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LinearHystogramStretching\LinHysSt.cs" />
+    <Compile Include="MathMorphology\BlackHat.cs" />
     <Compile Include="MathMorphology\Closing.cs" />
     <Compile Include="MathMorphology\Dilation.cs" />
     <Compile Include="MathMorphology\Erosion.cs" />
@@ -57,6 +58,7 @@
       <DependentUpon>MMCoreCreationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MathMorphology\Opening.cs" />
+    <Compile Include="MathMorphology\TopHat.cs" />
     <Compile Include="MatrixFilters\BlurFilter.cs" />
     <Compile Include="FilterCores\DCMatrixFilter.cs" />
     <Compile Include="FilterCores\Filters.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="MatrixFilters\EmbossingFilter.cs" />
     <Compile Include="MatrixFilters\GaussianFilter.cs" />
     <Compile Include="MatrixFilters\IncreaseSharpnessV2.cs" />
+    <Compile Include="MatrixFilters\MedianFilter.cs" />
     <Compile Include="MatrixFilters\MotionBlurFilter.cs" />
     <Compile Include="PointFilters\GlassFilter.cs" />
     <Compile Include="PointFilters\GrayScaleFilter.cs" />

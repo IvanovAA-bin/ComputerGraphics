@@ -14,7 +14,7 @@ namespace Lab_1
     public partial class Form1 : Form
     {
         private Bitmap image = null;
-
+        private LinkedList<Bitmap> ll = new LinkedList<Bitmap>();
         private MMCoreCreationForm.MMCore mmCore = new MMCoreCreationForm.MMCore();
 
 
@@ -48,6 +48,9 @@ namespace Lab_1
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            if (ll.Count >= 10)
+                ll.RemoveLast();
+            ll.AddFirst(new Bitmap(image));
             Bitmap newImage = ((Filters)e.Argument).processImage(image, backgroundWorker1);
             if (backgroundWorker1.CancellationPending != true)
                 image = newImage;
@@ -241,6 +244,64 @@ namespace Lab_1
         {
             Filters filter = new GrayWorld();
             backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mmCore.coreSize == 0)
+            {
+                MessageBox.Show("Set core first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Filters filter = new TopHat(mmCore);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void blackHatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mmCore.coreSize == 0)
+            {
+                MessageBox.Show("Set core first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Filters filter = new BlackHat(mmCore);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void медианныйФильтрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void радиус1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new MedianFilter(1);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void радиус2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new MedianFilter(2);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void радиус3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new MedianFilter(3);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void отменаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ll.Count == 0)
+            {
+                MessageBox.Show("Empty image list", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            image = ll.First();
+            ll.RemoveFirst();
+            pictureBox1.Image = image;
+            pictureBox1.Refresh();
         }
     }
 }
