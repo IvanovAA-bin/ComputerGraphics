@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LinearHystogramStretching\LinHysSt.cs" />
+    <Compile Include="LinearHystogramStretching\LinHystView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LinearHystogramStretching\LinHystView.Designer.cs">
+      <DependentUpon>LinHystView.cs</DependentUpon>
+    </Compile>
     <Compile Include="MathMorphology\BlackHat.cs" />
     <Compile Include="MathMorphology\Closing.cs" />
     <Compile Include="MathMorphology\Dilation.cs" />
@@ -89,6 +95,9 @@
     <Compile Include="MatrixFilters\SobelFilter.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinearHystogramStretching\LinHystView.resx">
+      <DependentUpon>LinHystView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MathMorphology\MMCoreCreationForm.resx">
       <DependentUpon>MMCoreCreationForm.cs</DependentUpon>

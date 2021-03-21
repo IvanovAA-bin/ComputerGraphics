@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lab_1.MathMorphology;
+using Lab_1.LinearHystogramStretching;
 
 namespace Lab_1
 {
@@ -186,8 +187,7 @@ namespace Lab_1
 
         private void линейноеРастяжениеГистограммыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Filters filter = new LinHysSt();
-            backgroundWorker1.RunWorkerAsync(filter);
+            
         }
 
         private void задатьЯдроToolStripMenuItem_Click(object sender, EventArgs e)
@@ -302,6 +302,18 @@ namespace Lab_1
             ll.RemoveFirst();
             pictureBox1.Image = image;
             pictureBox1.Refresh();
+        }
+
+        private void показатьГистограммуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LinHystView lhv = new LinHystView(image);
+            lhv.Show();
+        }
+
+        private void линейноеРастяжениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new LinHysSt();
+            backgroundWorker1.RunWorkerAsync(filter);
         }
     }
 }
