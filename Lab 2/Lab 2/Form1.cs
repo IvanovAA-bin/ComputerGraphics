@@ -22,6 +22,8 @@ namespace Lab_2
         private int currentLayer = 0;
         private int FrameCount;
         private bool renderByTextures = false;
+        private int minValue = 0;
+        private int width = 2000;
         private DateTime NextFPSUpdate = DateTime.Now.AddSeconds(1);
         public Form1()
         {
@@ -30,6 +32,14 @@ namespace Lab_2
             loaded = false;
             bin = new Bin();
             view = new MyView();
+            trackBar2.Maximum = 1000;
+            trackBar3.Maximum = 4000;
+            trackBar2.Value = 0;
+            trackBar3.Value = 2000;
+            textBox1.Text = (1000).ToString();
+            textBox2.Text = (3000).ToString();
+            textBox3.Text = minValue.ToString();
+            textBox4.Text = width.ToString();
             Application.Idle += Application_Idle1;
         }
 
@@ -77,7 +87,7 @@ namespace Lab_2
                 {
                     if (needReload)
                     {
-                        view.generateTextureImage(currentLayer);
+                        view.generateTextureImage(currentLayer, minValue, minValue + width);
                         view.Load2DTexture();
                         needReload = false;
                     }
@@ -86,7 +96,7 @@ namespace Lab_2
                 }
                 else
                 {
-                    view.DrawQuads(currentLayer);
+                    view.DrawQuads(currentLayer, minValue, minValue + width);
                     glControl1.SwapBuffers();
                 }
             }
@@ -101,6 +111,38 @@ namespace Lab_2
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             renderByTextures = checkBox1.Checked;
+        }
+
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+            minValue = trackBar2.Value;
+            textBox3.Text = minValue.ToString();
+            needReload = true;
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+
+            width = trackBar3.Value;
+            if (width < 5)
+                width = 5;
+            textBox4.Text = width.ToString();
+            needReload = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string minStr = textBox1.Text;
+            string widthStr = textBox2.Text;
+            int wid = Convert.ToInt32(widthStr);
+            if (wid < 5)
+                wid = 5;
+            //trackBar2.Value = (int)((float) trackBar2.Value / trackBar2.Maximum * minValue);
+            //trackBar3.Value = (int)((float) trackBar3.Value / trackBar3.Maximum * width);
+            trackBar2.Maximum = wid;
+            trackBar3.Maximum = Convert.ToInt32(widthStr);
+
+            needReload = true;
         }
     }
 }

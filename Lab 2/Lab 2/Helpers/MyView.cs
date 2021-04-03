@@ -35,13 +35,13 @@ namespace Lab_2.Helpers
             return val;
         }
 
-        public Color TransferFunction(short value, int min = 0, int max = 2000)
+        public Color TransferFunction(short value, int min, int max)
         { 
             int newVal = clamp((int)((float)(value - min) * 255 / (max - min)), 0, 255);
             return Color.FromArgb(255, newVal, newVal, newVal);
         }
 
-        public void DrawQuads(int layerNumber)
+        public void DrawQuads(int layerNumber, int min = 0, int max = 2000)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             GL.Begin(BeginMode.Quads);
@@ -53,25 +53,25 @@ namespace Lab_2.Helpers
                     // 1 вершина
                     value = Bin.array[x_coord + y_coord * Bin.X
                         + layerNumber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
+                    GL.Color3(TransferFunction(value, min, max));
                     GL.Vertex2(x_coord, y_coord);
 
                     // 2 вершина
                     value = Bin.array[x_coord + (y_coord + 1) * Bin.X
                         + layerNumber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
+                    GL.Color3(TransferFunction(value, min, max));
                     GL.Vertex2(x_coord, y_coord + 1);
 
                     // 3 вершина
                     value = Bin.array[x_coord + 1 + (y_coord + 1) * Bin.X
                         + layerNumber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
+                    GL.Color3(TransferFunction(value, min, max));
                     GL.Vertex2(x_coord + 1, y_coord + 1);
 
                     // 4 вершина
                     value = Bin.array[x_coord + 1 + y_coord * Bin.X
                         + layerNumber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
+                    GL.Color3(TransferFunction(value, min, max));
                     GL.Vertex2(x_coord + 1, y_coord);
                 }
             }
@@ -99,7 +99,7 @@ namespace Lab_2.Helpers
             string str = Er.ToString();
         }
 
-        public void generateTextureImage(int layerNumber)
+        public void generateTextureImage(int layerNumber, int min = 0, int max = 2000)
         {
             textureImage = new Bitmap(Bin.X, Bin.Y);
             for (int i = 0; i < Bin.X; i++)
@@ -107,7 +107,7 @@ namespace Lab_2.Helpers
                 for (int j = 0; j < Bin.Y; j++)
                 {
                     int pixelNumber = i + j * Bin.X + layerNumber * Bin.X * Bin.Y;
-                    textureImage.SetPixel(i, j, TransferFunction(Bin.array[pixelNumber]));
+                    textureImage.SetPixel(i, j, TransferFunction(Bin.array[pixelNumber], min, max));
                 }
             }
         }
