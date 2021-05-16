@@ -1,0 +1,17 @@
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\bin\Debug\Lab 3_2.exe.config
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\bin\Debug\Lab 3_2.exe
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\bin\Debug\Lab 3_2.pdb
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\bin\Debug\OpenTK.dll
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\bin\Debug\OpenTK.GLControl.dll
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\bin\Debug\OpenTK.pdb
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\bin\Debug\OpenTK.xml
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\bin\Debug\OpenTK.GLControl.xml
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\obj\Debug\Lab 3_2.csprojAssemblyReference.cache
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\obj\Debug\Lab 3_2.exe.config
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\obj\Debug\Lab_3_2.Form1.resources
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\obj\Debug\Lab_3_2.Properties.Resources.resources
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\obj\Debug\Lab 3_2.csproj.GenerateResource.cache
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\obj\Debug\Lab 3_2.csproj.CoreCompileInputs.cache
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\obj\Debug\Lab 3_2.csproj.CopyComplete
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\obj\Debug\Lab 3_2.exe
+C:\Users\STALKER\Desktop\Компьютерная графика\ComputerGraphics\Lab 3_2\Lab 3_2\obj\Debug\Lab 3_2.pdb
